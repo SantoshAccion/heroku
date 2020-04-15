@@ -18,7 +18,7 @@ io.on('connection', socket => {
     })
 
     socket.on("callUser", (data) => {
-        io.to(data.userToCall).emit('hey', {signal: data.signalData, from: data.from});
+        io.to(data.userToCall).emit('hey', { signal: data.signalData, from: data.from });
     })
 
     socket.on("acceptCall", (data) => {
@@ -26,6 +26,6 @@ io.on('connection', socket => {
     })
 });
 
-server.listen(8000, () => console.log('server is running on port 8000'));
+server.listen(process.env.PORT || 3000, () => console.log('server is running on port 8000'));
 
 
